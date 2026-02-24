@@ -1,0 +1,18 @@
+/*
+Theme Name: LubriSyn
+Text Domain: lubrisyn
+Version: 1.0.0
+Requires at least: 6.0
+Tested up to: 6.5
+Requires PHP: 7.4
+Description: Custom classic/hybrid theme for LubriSyn (PHP templates + block editor patterns). No Elementor. Built for WP Engine.
+Author: Pathfinders
+*/
+
+.lubrisyn-container {
+  max-width: 1440px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 20px;
+  padding-right: 20px;
+}

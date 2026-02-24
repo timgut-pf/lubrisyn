@@ -1,0 +1,124 @@
+.wp-block-acf-lubrisyn-hero .lsh-hero {
+  min-height: 560px;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+/* Dark overlay */
+.wp-block-acf-lubrisyn-hero .lsh-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(10, 33, 66, 0.25);
+}
+
+/* Optional texture */
+.wp-block-acf-lubrisyn-hero.is-textured .lsh-hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(rgba(255,255,255,0.10) 1px, transparent 1px);
+  background-size: 6px 6px;
+  opacity: 0.35;
+  pointer-events: none;
+}
+
+.wp-block-acf-lubrisyn-hero .lsh-hero__inner {
+  position: relative;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 113px 20px 40px;
+}
+
+.wp-block-acf-lubrisyn-hero .lsh-card {
+  width: min(640px, 100%);
+  background: rgba(10, 33, 66, 0.72);
+  border: 2px solid #DCAD26;
+  border-radius: 24px;
+  padding: 28px;
+  color: #FFFFFF;
+}
+
+.wp-block-acf-lubrisyn-hero .lsh-eyebrow {
+  font-weight: 700;
+  color: #DCAD26;
+  margin-bottom: 10px;
+}
+
+.wp-block-acf-lubrisyn-hero .lsh-title {
+  margin: 0 0 14px;
+  font-size: clamp(34px, 3vw, 44px);
+  line-height: 1.05;
+  text-transform: uppercase;
+}
+
+.wp-block-acf-lubrisyn-hero .lsh-content {
+  margin-bottom: 18px;
+  opacity: 0.95;
+}
+
+.wp-block-acf-lubrisyn-hero .lsh-dropdown-row {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.wp-block-acf-lubrisyn-hero .lsh-dropdown-label {
+  font-weight: 700;
+  color: #DCAD26;
+}
+
+.wp-block-acf-lubrisyn-hero .lsh-dropdown-wrap {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+}
+
+.wp-block-acf-lubrisyn-hero .lsh-select {
+  appearance: none;
+  background: #FFFFFF;
+  color: #333333;
+  border: 1px solid rgba(0,0,0,0.18);
+  border-radius: 10px;
+  padding: 10px 38px 10px 12px;
+  min-width: 240px;
+  font-size: 14px;
+}
+
+.wp-block-acf-lubrisyn-hero .lsh-select:focus {
+  outline: 2px solid #DCAD26;
+  outline-offset: 2px;
+}
+
+.wp-block-acf-lubrisyn-hero .lsh-select-icon {
+  position: absolute;
+  right: 12px;
+  pointer-events: none;
+  color: #1A386C;
+  font-size: 14px;
+}
+
+.wp-block-acf-lubrisyn-hero .lsh-dots {
+  margin-top: 18px;
+  display: flex;
+  gap: 8px;
+}
+
+.wp-block-acf-lubrisyn-hero .lsh-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 999px;
+  background: rgba(220, 173, 38, 0.55);
+}
+
+.wp-block-acf-lubrisyn-hero .lsh-dot.is-active {
+  background: #DCAD26;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .wp-block-acf-lubrisyn-hero .lsh-hero__inner { padding-top: 80px; }
+  .wp-block-acf-lubrisyn-hero .lsh-card { padding: 20px; border-radius: 18px; }
+}

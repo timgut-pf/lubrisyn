@@ -1,0 +1,121 @@
+{
+  "key": "group_lubrisyn_hero",
+  "title": "LubriSyn Hero Block",
+  "fields": [
+    {
+      "key": "field_lsh_preheader",
+      "label": "Hero Preheader",
+      "name": "hero_preheader",
+      "type": "text",
+      "wrapper": {
+        "width": "50"
+      }
+    },
+    {
+      "key": "field_lsh_title",
+      "label": "Hero Title",
+      "name": "hero_title",
+      "type": "text",
+      "wrapper": {
+        "width": "50"
+      }
+    },
+    {
+      "key": "field_lsh_content",
+      "label": "Hero Content",
+      "name": "hero_content",
+      "type": "wysiwyg",
+      "tabs": "all",
+      "toolbar": "basic",
+      "media_upload": 0
+    },
+    {
+      "key": "field_lsh_bg",
+      "label": "Background Image",
+      "name": "hero_background_image",
+      "type": "image",
+      "return_format": "array",
+      "preview_size": "medium",
+      "library": "all",
+      "mime_types": "jpg,jpeg,png,webp",
+      "instructions": "Large landscape image recommended."
+    },
+    {
+      "key": "field_lsh_texture",
+      "label": "Background Texture Pattern",
+      "name": "background_texture_pattern",
+      "type": "true_false",
+      "ui": 1,
+      "ui_on_text": "Yes",
+      "ui_off_text": "No",
+      "default_value": 1
+    },
+    {
+      "key": "field_lsh_dropdown_label",
+      "label": "Dropdown Label",
+      "name": "dropdown_label",
+      "type": "text",
+      "default_value": "Shop Products for:",
+      "wrapper": {
+        "width": "50"
+      }
+    },
+    {
+      "key": "field_lsh_dropdown_placeholder",
+      "label": "Dropdown Placeholder",
+      "name": "dropdown_placeholder",
+      "type": "text",
+      "default_value": "Select",
+      "wrapper": {
+        "width": "50"
+      }
+    },
+    {
+      "key": "field_lsh_dropdown_items",
+      "label": "Dropdown Items",
+      "name": "dropdown_items",
+      "type": "repeater",
+      "layout": "table",
+      "button_label": "Add Item",
+      "sub_fields": [
+        {
+          "key": "field_lsh_dd_label",
+          "label": "Label",
+          "name": "label",
+          "type": "text",
+          "wrapper": {
+            "width": "40"
+          }
+        },
+        {
+          "key": "field_lsh_dd_link",
+          "label": "Link",
+          "name": "link",
+          "type": "link",
+          "return_format": "array",
+          "wrapper": {
+            "width": "60"
+          }
+        }
+      ]
+    }
+  ],
+  "location": [
+    [
+      {
+        "param": "block",
+        "operator": "==",
+        "value": "acf/lubrisyn-hero"
+      }
+    ]
+  ],
+  "menu_order": 0,
+  "position": "normal",
+  "style": "default",
+  "label_placement": "top",
+  "instruction_placement": "label",
+  "hide_on_screen": "",
+  "active": true,
+  "description": "",
+  "show_in_rest": 0
+}

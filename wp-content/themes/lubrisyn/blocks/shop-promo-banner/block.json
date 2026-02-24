@@ -1,0 +1,15 @@
+{
+  "name": "acf/shop-promo-banner",
+  "title": "Shop Promo Banner w/Icons",
+  "description": "Promo banner with headline, intro text, and icon rows (name, icon, store link).",
+  "category": "layout",
+  "icon": "megaphone",
+  "keywords": ["promo", "banner", "shop", "lubrisyn"],
+  "acf": {
+    "mode": "preview",
+    "renderTemplate": "block.php"
+  },
+  "supports": {
+    "anchor": true
+  }
+}
