@@ -1,0 +1,12 @@
+{
+    "name": "acf/faq",
+    "title": "FAQ Section",
+    "description": "Textured background with left-side title and right-side Q&A list.",
+    "style": "file:./faq.css",
+    "category": "lubrisyn",
+    "icon": "editor-help",
+    "acf": {
+        "mode": "preview",
+        "renderTemplate": "faq.php"
+    }
+}

@@ -1,0 +1,12 @@
+{
+    "name": "acf/comparison-table",
+    "title": "Comparison Table",
+    "description": "Two products with breakout images and full-width buttons.",
+    "style": "file:./comparison-table.css",
+    "category": "lubrisyn",
+    "icon": "cart",
+    "acf": {
+        "mode": "preview",
+        "renderTemplate": "comparison-table.php"
+    }
+}

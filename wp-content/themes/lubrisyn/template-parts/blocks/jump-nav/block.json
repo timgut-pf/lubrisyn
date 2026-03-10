@@ -1,0 +1,17 @@
+{
+    "name": "acf/jump-nav",
+    "title": "Jump Link Navigation",
+    "description": "A horizontal bar with buttons that jump to specific page sections.",
+    "style": "file:./jump-nav.css",
+    "category": "formatting",
+    "icon": "external",
+    "keywords": ["jump", "anchor", "navigation", "menu"],
+    "acf": {
+        "mode": "preview",
+        "renderTemplate": "jump-nav.php"
+    },
+    "supports": {
+        "align": false,
+        "anchor": true
+    }
+}

@@ -1,0 +1,12 @@
+{
+    "name": "acf/form-image",
+    "title": "Form with Side Image",
+    "description": "A split layout featuring a Gravity Form and an image.",
+    "style": "file:./form-image.css",
+    "category": "lubrisyn",
+    "icon": "forms",
+    "acf": {
+        "mode": "preview",
+        "renderTemplate": "form-image.php"
+    }
+}

@@ -1,0 +1,62 @@
+.comparison-block { padding: 80px 0; }
+
+.table-scroll-wrapper {
+    width: 100%;
+    overflow-x: auto; /* Enables horizontal scroll */
+    -webkit-overflow-scrolling: touch;
+    margin-top: 40px;
+}
+
+.comparison-header {
+    text-align: center;
+}
+
+.comparison-table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 800px; /* Ensures the table doesn't squash on mobile */
+}
+
+.comparison-table th, 
+.comparison-table td {
+    padding: 20px;
+    border: 1px solid #e0e0e0;
+    text-align: center;
+}
+
+/* Sticky First Column */
+.question-cell, .blank-cell {
+    position: sticky;
+    left: 0;
+    background-color: var(--white);
+    z-index: 10;
+    text-align: left;
+    font-weight: 700;
+    color: var(--navy-blue);
+    min-width: 200px;
+}
+
+.table-scroll-wrapper > table > thead > tr > th:nth-child(2),
+.table-scroll-wrapper > table > tbody > tr:nth-child(1) > td:nth-child(2),
+.table-scroll-wrapper > table > tbody > tr:nth-child(2) > td:nth-child(2),
+.table-scroll-wrapper > table > tbody > tr:nth-child(3) > td:nth-child(2),
+.table-scroll-wrapper > table > tbody > tr:nth-child(4) > td:nth-child(2),
+.table-scroll-wrapper > table > tbody > tr:nth-child(5) > td:nth-child(2),
+.table-scroll-wrapper > table > thead > tr > th:nth-child(4),
+.table-scroll-wrapper > table > tbody > tr:nth-child(1) > td:nth-child(4),
+.table-scroll-wrapper > table > tbody > tr:nth-child(2) > td:nth-child(4),
+.table-scroll-wrapper > table > tbody > tr:nth-child(3) > td:nth-child(4),
+.table-scroll-wrapper > table > tbody > tr:nth-child(4) > td:nth-child(4)
+
+ {
+    background-color: #f9f9f9;
+}
+
+.comparison-table thead th {
+    /* background-color: var(--navy-blue); */
+    color: var(--navy-blue);
+}
+
+.comparison-table tr:nth-child(even) {
+    /* background-color: #f9f9f9; */
+}

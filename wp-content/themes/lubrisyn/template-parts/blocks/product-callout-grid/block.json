@@ -1,0 +1,12 @@
+{
+    "name": "acf/product-callout-grid",
+    "title": "Product Callout Grid",
+    "description": "A grid of icons, titles, and descriptions (max 3 per row).",
+    "style": "file:./product-callout-grid.css",
+    "category": "lubrisyn",
+    "icon": "grid-view",
+    "acf": {
+        "mode": "preview",
+        "renderTemplate": "product-callout-grid.php"
+    }
+}

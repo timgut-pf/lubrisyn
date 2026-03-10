@@ -1,0 +1,73 @@
+.masonry-reviews {
+    padding-top: 60px;
+}
+
+.masonry-grid {
+    column-count: 3;
+    column-gap: 30px;
+}
+
+.reviews-intro {
+    text-align: center;
+    color: var(--navy-blue);
+    font-size: 14px;
+}
+
+.reviews-intro h2{
+    text-align: center;
+    color: var(--navy-blue);
+    font-size: 30px;
+}
+
+.masonry-card {
+    break-inside: avoid; /* Prevents cards from splitting across columns */
+    margin-bottom: 30px;
+    background: #fff;
+    border: 1px solid #DADDE2;
+    padding: 25px;
+    border-radius: 12px;
+}
+
+.rating-badge {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    padding: 0px 0px;
+    border-radius: 4px;
+    display: inline-flex; /* Shrinks to fit content */
+    margin-top: 4px;
+}
+
+.star-icon {
+    color: #000;
+    font-size: 1.1rem;
+    line-height: 1;
+}
+
+.rating-number {
+    font-size: 0.9rem;
+    font-weight: 400;
+    color:#000;
+    font-family: var(--font-primary);
+}
+
+/* Ensure the user-meta stacks correctly */
+.user-meta {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.user-meta h4 {
+    margin-bottom: 0px;
+}
+
+.card-header { display: flex; align-items: center; gap: 15px; margin-bottom: 20px; }
+.card-header img { width: 50px; height: 50px; border-radius: 50%; }
+
+.stars { color: #000 }
+.full-img { width: 100%; height: auto; margin: 15px 0; }
+
+/* Responsive */
+@media (max-width: 992px) { .masonry-grid { column-count: 2; } }
+@media (max-width: 600px) { .masonry-grid { column-count: 1; } }

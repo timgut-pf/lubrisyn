@@ -1,0 +1,16 @@
+{
+    "name": "acf/cta",
+    "title": "CTA (Image Right)",
+    "description": "50/50 split with headline and side-by-side buttons.",
+    "style": "file:./cta.css",
+    "category": "lubrisyn",
+    "icon": "megaphone",
+    "acf": {
+        "mode": "preview",
+        "renderTemplate": "cta.php"
+    },
+    "supports": {
+        "anchor": true,
+        "align": false
+    }
+}

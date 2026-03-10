@@ -1,0 +1,15 @@
+{
+    "name": "acf/product-callouts",
+    "title": "Product Callouts",
+    "description": "Two columns with an image and 3-sided border callouts.",
+    "style": "file:./product-callouts.css",
+    "category": "lubrisyn",
+    "icon": "megaphone",
+    "acf": {
+        "mode": "preview",
+        "renderTemplate": "product-callouts.php"
+    },
+    "supports": {
+        "anchor": true
+    }
+}

@@ -1,0 +1,96 @@
+.content-grid-block {
+    padding: 50px 0;
+}
+
+.grid-header {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 50px auto;
+}
+
+.grid-header h2 {
+    margin-bottom: 20px;
+}
+
+.grid-container {
+    display: grid;
+    /* This creates 4 equal columns. If there are 5 items, the 5th drops to the next row automatically */
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+}
+
+.grid-item {
+    text-align: center;
+    border: 3px solid var(--navy-blue);
+    border-radius: 12px;
+}
+
+.item-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px; /* Optional: adds a slight curve to images */
+    margin-bottom: 15px;
+}
+
+.grid-item h3 {
+    font-size: 1.2rem;
+    color: var(--navy-blue);
+}
+
+/* Ensure the link behaves like a block container */
+a.grid-item {
+    text-decoration: none;
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+/* Hover Effect: Lift the block slightly and change title color */
+a.grid-item:hover {
+    transform: translateY(-5px);
+    border-color: var(--golden-yellow);
+    transition: transform 0.5s ease;
+    text-decoration: none;
+}
+
+/* Since it's a link, we need to re-ensure the title color */
+.grid-item h3 {
+    font-size: 1.25rem;
+    color: var(--navy-blue);
+    margin-top: 15px;
+    transition: color 0.3s ease;
+}
+
+a.grid-item:hover h3 {
+    color: var(--golden-yellow);
+
+}
+
+/* Image zoom effect on hover */
+/* .item-image {
+    overflow: hidden;
+    border-radius: 8px;
+} */
+
+.item-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.5s ease;
+}
+
+a.grid-item:hover .item-image img {
+    transform: scale(1.05);
+}
+
+/* Responsive: 2 columns on tablet, 1 on mobile */
+@media (max-width: 992px) {
+    .grid-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .grid-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}

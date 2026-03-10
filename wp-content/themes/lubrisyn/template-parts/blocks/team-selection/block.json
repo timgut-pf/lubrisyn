@@ -1,0 +1,12 @@
+{
+    "name": "acf/team-selection",
+    "title": "Team Member List",
+    "description": "Select specific team members to display in a row layout.",
+    "style": "file:./team-selection.css",
+    "category": "lubrisyn",
+    "icon": "admin-users",
+    "acf": {
+        "mode": "preview",
+        "renderTemplate": "team-selection.php"
+    }
+}

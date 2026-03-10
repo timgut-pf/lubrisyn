@@ -1,0 +1,12 @@
+{
+    "name": "acf/research-studies",
+    "title": "Research & Studies",
+    "description": "Image on left, content and link list with yellow border on right.",
+    "style": "file:./research-studies.css",
+    "category": "lubrisyn",
+    "icon": "welcome-learn-more",
+    "acf": {
+        "mode": "preview",
+        "renderTemplate": "research-studies.php"
+    }
+}

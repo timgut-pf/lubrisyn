@@ -1,0 +1,100 @@
+.hero-2 {
+  padding: 0 0 0px 0;
+  background-color: #F9F7F5;
+  overflow: hidden;
+  border-radius: 0 0 82px 82px;
+  box-shadow: 0 4px 28px 0 #7D7D7D;
+  margin-bottom: 35px;
+}
+
+.hero-2-grid {
+  display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    /* Change 'center' to 'flex-start' to lock everything to the top */
+    align-items: flex-start;
+  padding-left: 60px;
+}
+
+.hero-2-image {
+  align-self: flex-start; 
+  line-height: 0;
+}
+
+
+.hero-2-content {
+  padding-left: 25px;
+  padding-bottom: 25px;
+  align-self: center;
+}
+
+.hero-2-content h1 {
+  font-size: clamp(2.5rem, 6vw, 4rem); /* Large headline that scales */
+  color: var(--navy-blue);
+  line-height: 1.1;
+  margin-bottom: 20px;
+  text-align: center;
+  color: #333;
+}
+
+.hero-2-intro {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  color: #444;
+}
+
+.hero-2-intro > p {
+  text-align: center;
+
+}
+
+.hero-2-heading {
+  font-size: 72px;
+font-style: normal;
+font-weight: 400;
+line-height: 66px; /* 91.667% */
+text-transform: uppercase;
+}
+
+.hero-2-image > img {
+  border-radius: 0 0 78px 78px;
+  border-left: 3px solid var(--golden-yellow);
+    border-right: 3px solid var(--golden-yellow);
+    border-bottom: 3px solid var(--golden-yellow);
+}
+
+.hero-img-right {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Mobile: Text on Top, Image Below */
+@media (max-width: 850px) {
+  .hero-2 {
+      padding: 0 0 0px 0;
+  }
+
+  .hero-2-content {
+    padding-top: 30px;
+    padding-bottom: 0px;
+    padding-right: 25px;
+  }
+
+  .hero-2-grid {
+      grid-template-columns: 1fr; /* Single column stack */
+      text-align: center;
+      gap: 40px;
+  }
+
+  /* In standard HTML flow, .hero-2-content is already before .hero-2-image */
+  /* So it naturally appears on top without needing 'order' properties */
+  
+  .hero-img-right {
+      /* max-width: 500px; */
+      margin: 0 auto;
+  }
+  .hero-2-grid {
+    padding-left: 0px;
+  }
+}

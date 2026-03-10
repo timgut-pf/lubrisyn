@@ -1,0 +1,414 @@
+/* --- Desktop Defaults --- */
+.menu-toggle { display: none; } /* Hide toggle on desktop */
+
+/* Header Layout */
+
+.lubrisyn-header {
+  background-color: var(--navy-blue) ;
+}
+
+.header-container {
+  display: flex;
+    align-items: center; 
+    justify-content: space-between;
+    padding: 10px 5%;
+    max-width: 1600px;
+    margin: 0 auto;
+}
+
+/* Three-column logic */
+.header-left, 
+.header-right {
+  flex: 1;
+}
+
+.header-center {
+  flex: 0 0 auto;
+  text-align: center;
+}
+
+.header-left {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.header-right {
+  display: flex;
+  justify-content: flex-end; /* Pushes content to the far right */
+  align-items: center;
+  gap: 40px; /* Space between Nav and Icons */
+}
+
+/* Navigation List */
+
+/* Top Bar Styling */
+.top-bar {
+  background-color: #f5f5f5; /* Light gray or change to your brand color */
+  padding: 8px 0;
+  background-color: var(--golden-yellow) ;
+}
+
+.top-bar-container {
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: 0 5%;
+  display: flex;
+  justify-content: flex-end; /* Pushes links to the right */
+}
+
+.top-bar-links {
+  display: flex;
+  gap: 20px;
+  font-family: "gotham", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+  font-size: 14px;
+}
+
+.top-link {
+  text-decoration: none;
+  color: var(--navy-blue);
+  font-size: 13px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 6px; /* Space between icon and text */
+  transition: color 0.2s ease;
+}
+
+.top-link:hover {
+  text-decoration: none;
+}
+
+/* Size adjustment for icons in the top bar */
+.top-link .dashicons {
+  font-size: 16px;
+  width: 16px;
+  height: 16px;
+  display: flex;
+  align-items: center;
+}
+
+/* Adjust Main Header Padding */
+.header-container {
+  padding-top: 15px; /* Adds space now that top bar is present */
+}
+
+
+.nav-list {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: 30px;
+  align-items: center;
+}
+
+.nav-list a {
+  font-family: "brothers", sans-serif;
+  font-feature-settings: 'liga' off, 'clig' off;
+  letter-spacing: 0.05em;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 18px;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--white);
+}
+
+.site-logo img {
+  max-height: 55px;
+  width: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+/* Icons */
+.header-icons {
+  display: flex;
+  gap: 20px;
+}
+
+.icon-link {
+  color: var(--white);
+  text-decoration: none;
+  font-size: 20px;
+  transition: transform 0.2s ease;
+}
+
+.icon-link:hover {
+  transform: scale(1.1);
+  color: var(--golden-yellow);
+  text-decoration: none;
+}
+
+.mobile-utility-links {
+    display: none;
+}
+.mobile-icons-container{
+    display: none;
+}
+
+
+.mobile-icons-container {
+  display: none;
+  justify-content: space-between;
+  align-items: stretch;
+
+  width: 100%;
+  padding: 10px 10px;
+}
+
+.mobile-icon-item {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  color: var(--navy-blue);
+  text-align: center;
+  transition: background 0.3s ease;
+  background-color: var(--golden-yellow);
+  padding-top: 10px;
+  border-radius: 8px;
+  height:85px;
+  width:85px;
+  max-width: 85px;
+  max-height: 85px;
+  min-width: 85px;
+  padding: 10px;
+
+}
+
+.mobile-icon-item:hover {
+  background-color: rgba(0, 0, 0, 0.05); /* Subtle dark tint on tap/hover */
+}
+
+/* Icon Styling */
+.mobile-icon-item .dashicons {
+  font-size: 24px;
+  width: 24px;
+  height: 24px;
+  margin-bottom: 5px;
+}
+
+/* Label Styling */
+.icon-label {
+  font-size:  12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-family: var(--font-primary);
+}
+
+/* Ensure the parent is the anchor point */
+.main-nav .menu-item-has-children {
+  position: relative;
+}
+
+/* Hide the sub-menu by default */
+.main-nav .sub-menu {
+  display: none; /* Controlled by JS toggle */
+  position: relative; /* Crucial: This pushes 'FAQS' and icons down */
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  background: none;
+  box-shadow: none;
+  list-style: none;
+}
+
+/* Show the sub-menu when the 'sub-menu-open' class is toggled */
+.main-nav .menu-item-has-children.sub-menu-open > .sub-menu {
+  display: block !important;
+}
+
+.main-nav .sub-menu li {
+  border-bottom: 1px solid var(--navy-blue); /* Matches your .nav-list li */
+  border-top: none;
+  padding: 10px 0px;
+}
+
+/* Style the sub-menu links */
+.main-nav .sub-menu li a {
+  padding: 12px 0 12px 0px !important; /* Indented */
+        font-size: 14px;
+        /* border-bottom: 1px solid #eee; */
+        color: var(--navy-blue);
+}
+
+.main-nav .sub-menu li a:hover {
+  /* background-color: #f8f8f8; */
+  color: var(--golden-yellow);
+}
+
+/* Target only the SHOP parent item */
+.main-nav .menu-item-has-children > a {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Create the Yellow Arrow */
+.main-nav .menu-item-has-children > a::after {
+    content: '';
+    width: 8px;
+    height: 8px;
+    border-right: 2px solid var(--golden-yellow);
+    border-bottom: 2px solid var(--golden-yellow);
+    display: inline-block;
+    margin-right: 10px; /* Space between arrow and 'SHOP' */
+    transform: rotate(45deg); /* Points Down */
+    transition: transform 0.3s ease;
+    margin-left: 10px;
+    margin-bottom: 3px;
+}
+
+/* Rotate the arrow when the menu is open */
+.main-nav .menu-item-has-children.sub-menu-open > a::after {
+    transform: rotate(-135deg); /* Points Up */
+    margin-top: 5px; /* Adjusts alignment when flipped */
+}
+
+/* ========================================
+   Mobile Styles
+======================================== */
+.dashicons-menu, .dashicons-no-alt {
+    color: var(--golden-yellow);
+}
+
+@media (min-width: 1025px) {
+  .main-nav .menu-item-has-children {
+      position: relative;
+  }
+
+  .main-nav .sub-menu {
+      display: none;
+      position: absolute; /* Desktop floats over content */
+      top: 100%;
+      left: 0;
+      background: var(--white);
+      min-width: 200px;
+      box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+      z-index: 999;
+      padding: 10px 0 0 0;
+      width:230px;
+      text-align: center;
+  }
+
+  /* Show on Hover for Desktop */
+  .main-nav .menu-item-has-children:hover > .sub-menu,
+  .main-nav .menu-item-has-children.sub-menu-open > .sub-menu {
+      display: block;
+  }
+}
+
+@media (max-width: 1024px) {
+    .header-container {
+        padding: 10px 20px;
+        position: relative;
+    }
+    .mobile-icons-container{
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        justify-content: center;
+        gap: 30px;
+    }
+
+    .main-nav .sub-menu {
+      display: none; 
+      position: relative; /* Mobile pushes content down */
+      top: 0;
+      width: 100%;
+      box-shadow: none;
+  }
+
+  .main-nav .sub-menu li {
+    padding-left: 10px;
+  }
+    
+  
+    .main-nav {
+        display: none; 
+        position: absolute;
+        top: 100%; 
+        left: 0;
+        width: 100%;
+        background-color: var(--white) !important;
+        z-index: 9999; 
+        box-shadow: 0 10px 15px rgba(0,0,0,0.1);
+    }
+  
+    .lubrisyn-header .main-nav.is-open {
+        display: block !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+    }
+  
+    .nav-list {
+        flex-direction: column; 
+        gap: 0;
+        padding: 20px;
+    }
+  
+    .nav-list li {
+        border-bottom: 1px solid var(--navy-blue);
+        width: 100%;
+    }
+  
+    .nav-list a {
+        display: block;
+        padding: 15px 0;
+        font-size: 18px;
+        color: var(--navy-blue) !important;
+    }
+  
+    .menu-toggle {
+        display: block !important;
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 0;
+        color: var(--white);
+    }
+  
+    .menu-toggle .dashicons { 
+        font-size: 32px; 
+        width: 32px; 
+        height: 32px; 
+    }
+  
+    /* 5. Logo & Top Bar */
+    .site-logo img {
+        max-height: 45px;
+    }
+  
+    .top-bar-links {
+        justify-content: center;
+        width: 100%;
+    }
+  
+    .top-link span { 
+        display: none; 
+    }
+  }
+  
+  @media (max-width: 1024px) {
+    .header-container {
+        padding: 10px 20px;
+    }
+    .main-nav, .top-bar, .header-icons {
+        display: none;
+    }
+  }
+
+  
+
+  
+
+  

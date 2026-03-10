@@ -1,0 +1,117 @@
+.accordion-image-block {
+    padding: 100px 0;
+    background-color: var(--white);
+}
+
+.accordion-image-container {
+    display: flex;
+    align-items: flex-start;
+    gap: 40px;
+}
+
+.accordion-grid {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    gap: 80px;
+    align-items: flex-start;
+}
+
+.section-title {
+    margin-bottom: 40px;
+    color: var(--navy-blue);
+    font-size: 2.2rem;
+    text-align: center;
+}
+
+/* Accordion Styling */
+.accordion-item {
+    border: 2px solid var(--navy-blue);
+    background-color: #fff;
+    border-radius: 15px;
+    margin-bottom: 20px;
+}
+
+.accordion-trigger {
+    width: 100%;
+    padding: 25px 25px;
+    background: none;
+    border: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    text-align: left;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--navy-blue);
+}
+
+.arrow {
+    width: 18px;
+    height: 18px;
+    border-right: 2px solid var(--navy-blue);
+    border-bottom: 2px solid var(--navy-blue);
+    transform: rotate(45deg);
+    transition: transform 0.3s ease;
+}
+
+.active .arrow {
+    transform: rotate(-135deg);
+}
+
+.accordion-panel {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease-out;
+}
+
+.active .accordion-panel {
+    max-height: 500px; /* Adjust as needed for long answers */
+}
+
+.panel-inner {
+    padding: 0 25px 25px 25px;
+    line-height: 1.6;
+    color: #555;
+}
+
+/* Image Column */
+.portrait-img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 3 / 4; /* Forced portrait look */
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+}
+
+@media (max-width: 1024px) {
+   
+}
+
+/* Mobile */
+@media (max-width: 992px) {
+    .accordion-grid {
+        grid-template-columns: 1fr;
+        gap: 50px;
+    }
+    .accordion-image-col {
+        order: -1; /* Image appears above text on mobile */
+    }
+
+    .accordion-image-container {
+        flex-direction: column; /* Stacks them vertically */
+    }
+
+    /* Target the Accordion Section to be FIRST */
+    .accordion-content-col {
+        order: 1; 
+    }
+
+    /* Target the Image Section to be SECOND */
+    .accordion-image-col {
+        order: 2;
+        margin-top: 30px; /* Optional: adds space between the two */
+    }
+}
+

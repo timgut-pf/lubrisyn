@@ -1,0 +1,15 @@
+{
+    "name": "acf/content-grid",
+    "title": "Content Grid",
+    "description": "boxed content with aimage title and link",
+    "style": "file:./content-grid.css",
+    "category": "lubrisyn",
+    "icon": "megaphone",
+    "acf": {
+        "mode": "preview",
+        "renderTemplate": "content-grid.php"
+    },
+    "supports": {
+        "anchor": true
+    }
+}

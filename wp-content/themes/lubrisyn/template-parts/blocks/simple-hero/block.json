@@ -1,0 +1,12 @@
+{
+    "name": "acf/simple-hero",
+    "title": "Simple Hero",
+    "description": "Centered H1 with a grey background and rounded bottom corners.",
+    "style": "file:./simple-hero.css",
+    "category": "lubrisyn",
+    "icon": "heading",
+    "acf": {
+        "mode": "preview",
+        "renderTemplate": "simple-hero.php"
+    }
+}

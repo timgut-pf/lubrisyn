@@ -1,0 +1,13 @@
+{
+    "name": "acf/reviews",
+    "title": "Reviews Slider",
+    "description": "A header with a 'See All' button and a 2-column review slider.",
+    "style": "file:./reviews.css",
+    "script": "file:./reviews.js",
+    "category": "lubrisyn",
+    "icon": "format-quote",
+    "acf": {
+        "mode": "preview",
+        "renderTemplate": "reviews.php"
+    }
+}

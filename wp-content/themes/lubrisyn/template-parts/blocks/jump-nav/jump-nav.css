@@ -1,0 +1,77 @@
+/* The Main Navigation Bar Container */
+.jump-nav {
+    padding: 20px 0;
+    position: sticky;
+    top: 0;
+    background-color: #fff;
+    z-index: 9999; /* Ensures it stays above all other blocks */
+}
+
+/* The Flex Container for the Buttons */
+.nav-flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    flex-wrap: wrap; /* Allows buttons to wrap on smaller screens */
+    flex-direction: column;
+}
+
+.jump-to {
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 38px; /* 190% */
+color: var(--navy-blue);
+}
+
+/* Individual Jump Buttons */
+.jump-btn {
+    display: inline-block;
+    background-color: var(--white);
+    color: var(--navy-blue);
+    border: 2px solid var(--navy-blue);
+    padding: 10px 22px;
+   
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 0.85rem;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease-in-out;
+}
+
+/* Hover States */
+.jump-btn:hover {
+    background-color: var(--golden-yellow);
+    color: var(--navy-blue);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-decoration: none;
+}
+
+/* Smooth Scrolling & Anchor Offset */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Prevents the sticky nav from covering the section title 
+   when you click a link. Adjust 100px to match your nav's height.
+*/
+[id] {
+    scroll-margin-top: 100px;
+}
+
+/* Mobile Adjustments */
+@media (max-width: 768px) {
+    .jump-nav {
+        padding: 15px 0;
+    }
+    
+    .nav-flex {
+        gap: 8px;
+    }
+    
+    .jump-btn {
+        padding: 8px 14px;
+        font-size: 0.75rem;
+    }
+}

@@ -1,0 +1,12 @@
+{
+    "name": "acf/choose-product",
+    "title": "Choose a Product",
+    "description": "Two products with breakout images and full-width buttons.",
+    "style": "file:./choose-product.css",
+    "category": "lubrisyn",
+    "icon": "cart",
+    "acf": {
+        "mode": "preview",
+        "renderTemplate": "choose-product.php"
+    }
+}

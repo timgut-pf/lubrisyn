@@ -1,0 +1,12 @@
+{
+    "name": "acf/featured-news",
+    "title": "Featured news",
+    "description": "3 fetured blog posts",
+    "style": "file:./featured-news.css",
+    "category": "lubrisyn",
+    "icon": "heading",
+    "acf": {
+        "mode": "preview",
+        "renderTemplate": "featured-news.php"
+    }
+}

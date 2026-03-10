@@ -1,0 +1,18 @@
+{
+    "name": "acf/triple-feature",
+    "title": "Triple Feature Columns",
+    "description": "A 3-column layout featuring titles, authors, and descriptions.",
+    "style": "file:./triple-feature.css",
+    "category": "lubrisyn",
+    "icon": "columns",
+    "keywords": ["triple", "columns", "features", "resources"],
+    "acf": {
+        "mode": "preview",
+        "renderTemplate": "triple-feature.php"
+    },
+    "supports": {
+        "align": false,
+        "anchor": true,
+        "jsx": true
+    }
+}

@@ -1,0 +1,16 @@
+{
+    "name": "acf/accordion-grid-mini",
+    "title": "Accordion & 2x2 Image Grid",
+    "description": "FAQs on the left with a 2x2 grid of images and titles on the right.",
+    "style": "file:./accordion-grid-mini.css",
+    "category": "layout",
+    "icon": "layout",
+    "acf": {
+        "mode": "preview",
+        "renderTemplate": "accordion-grid-mini.php"
+    },
+    "supports": {
+        "anchor": true,
+        "align": false
+    }
+}

@@ -1,0 +1,177 @@
+.product-section-main-title {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    color: #333;
+    font-size: 50px;
+}
+
+.product-section-sub-title {
+    text-align: center;
+    margin-bottom: 30px;
+    max-width: 700px;
+}
+
+.product-title-container {
+    position: relative;
+    bottom: 19em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 60px;
+}
+.choose-product-block {
+    padding: 270px 0 80px; /* Extra top padding for the breakout images */
+    /* background-color: #f8f8f8; */
+}
+
+.product-selection-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: stretch;
+}
+
+.product-image-wrap {
+    height: 150px; /* Anchors the space for the breakout */
+    position: relative;
+}
+
+.breakout-image {
+    width: auto;
+    max-width: 90%;
+    /* height: 250px; Actual height is larger than the wrap */
+    object-fit: contain;
+    position: absolute;
+    bottom: 20px; /* Sits slightly into the white card */
+    left: 50%;
+    transform: translateX(-50%); /* Centers the breakout image */
+    filter: drop-shadow(0 10px 15px rgba(0,0,0,0.1));
+}
+
+.product-info {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    
+}
+
+.product-info h3 {
+   
+}
+
+.product-info p {
+    margin-bottom: 30px;
+    color: var(--white);
+
+}
+
+.btn-full-width {
+    display: block;
+    width: 100%;
+    text-align: center;
+    padding: 15px 0;
+}
+
+/* Helper for dark backgrounds */
+.product-card.light-text h3,
+.product-card.light-text p {
+    color: var(--white);
+}
+
+.product-card.light-text {
+    border: none; /* Borders look messy on dark background cards */
+}
+
+.product-title {
+    font-size: 44px;
+    color: var(--white);
+    margin-bottom: 15px;
+    font-feature-settings: 'liga' off, 'clig' off;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 50px; /* 113.636% */
+    text-transform: uppercase;
+}
+
+/* Ensure buttons stand out on dark cards */
+.product-card.light-text .btn-primary {
+    border: 2px solid var(--white);
+}
+
+/* Standard card layout remains the same */
+.product-card {
+    padding: 0 40px 40px;
+    border: 1px solid #eee;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    transition: background-color 0.3s ease;
+}
+
+@media (max-width:1200px) {
+    .choose-product-block {
+        padding: 180px 0 80px;
+    }
+
+    .product-title-container {
+        bottom: 14em;
+    }
+}
+
+/* Mobile: Stack cards and increase spacing */
+@media (max-width: 800px) {
+    .product-selection-grid {
+        grid-template-columns: 1fr;
+        gap: 120px; /* Large gap so the next breakout doesn't hit the card above */
+    }
+    .product-title-container {
+        bottom: 21em;
+    }
+
+    .breakout-image {
+        width: 100%;
+    }
+
+    .choose-product-block {
+        padding: 260px 0 80px; /* Extra top padding for the breakout images */
+        /* background-color: #f8f8f8; */
+    }
+    body > section.choose-product-block > div > div > div:nth-child(2) {
+        margin-top: 200px;
+    }
+}
+
+
+@media (max-width: 600px) {
+    .product-title-container {
+        bottom: 16em;
+        padding-right: 25px;
+        padding-left: 25px;
+    }
+
+}
+
+@media (max-width: 500px) {
+    .choose-product-block {
+        padding: 80px 0 80px; /* Extra top padding for the breakout images */
+        /* background-color: #f8f8f8; */
+    }
+
+    body > section.choose-product-block > div > div > div:nth-child(2) {
+        margin-top: 20px;
+    }
+}
+
+@media (max-width: 499px) {
+    .product-title-container {
+        bottom: 9em;
+        padding-right: 25px;
+        padding-left: 25px;
+    }
+}
+

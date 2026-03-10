@@ -1,0 +1,12 @@
+{
+    "name": "acf/masonry-reviews",
+    "title": "Masonry Reviews",
+    "description": "Masonry grid of reviews with star ratings and optional images.",
+    "style": "file:./masonry-reviews.css",
+    "category": "lubrisyn",
+    "icon": "feedback",
+    "acf": {
+        "mode": "preview",
+        "renderTemplate": "masonry-reviews.php"
+    }
+}

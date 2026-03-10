@@ -1,0 +1,100 @@
+
+  
+  .gfield_label {
+    font-family: var(--gotham) !important;
+    font-size: 16px !important;
+    font-style: norma !important;
+    font-weight: 600 !important;
+    line-height: 18px !important;
+  }
+
+.form-image-block {
+    padding: 60px 0 10px 0;
+    background-color: var(--white);
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center; /* Keeps image vertically centered with the form */
+    padding-bottom: 60px;
+    border-bottom: 1px solid #333;
+}
+
+.form-block-header {
+    text-align: center;
+    margin-bottom: 50px; /* Space between headline and the form/image */
+    color: #333;
+    width: 100%;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 30px; /* 166.667% */
+    border-bottom: 1px solid #7D7D7D;
+    padding-bottom: 20px;
+    text-transform: none !important;
+    }
+
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: flex-start; /* Changed from center so form/image start at same top line */
+}
+
+.form-column h2 {
+    margin-bottom: 30px;
+    color: var(--navy-blue);
+}
+
+.form-side-img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+}
+
+.image-column {
+    justify-content: center;
+    text-align: center;
+    display: flex;
+}
+
+.image-column img{
+        max-height: 550px; /* Example max height */
+        width: auto;
+        object-fit: contain; /* Ensures it scales down without distorting */
+      }
+      
+
+/* Customizing the Gravity Form appearance to match brand */
+.form-column .gform_wrapper.gravity-theme .gform_button {
+    background-color: var(--golden-yellow);
+    color: var(--navy-blue);
+    font-weight: 700;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 4px;
+    transition: background 0.3s ease;
+}
+
+.form-column .gform_wrapper.gravity-theme .gform_button:hover {
+    background-color: var(--navy-blue);
+    color: var(--white);
+}
+
+
+  
+
+/* Mobile: Stack form top, image bottom */
+@media (max-width: 992px) {
+    .form-grid {
+        grid-template-columns: 1fr;
+        gap: 50px;
+    }
+    
+    .image-column {
+        order: 2; /* Put image under the form on mobile */
+    }
+}

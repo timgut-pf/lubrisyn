@@ -1,0 +1,125 @@
+.research-block {
+    padding: 100px 0;
+    background-color: var(--white);
+}
+
+.research-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    /* gap: 80px; */
+    align-items: center;
+}
+
+.research-img {
+    width: 100%;
+    /* max-height: 520px; */
+    height: auto;
+    border-radius: 4px; /* Optional slight rounding */
+}
+
+.research-content-col > div:nth-child(1) {
+    padding-left: 120px;
+}
+
+.research-content-col h2 {
+    color: #333;
+    margin-bottom: 25px;
+    font-size: 2.5rem;
+}
+
+.research-text {
+    margin-bottom: 35px;
+    line-height: 1.7;
+    color: #444;
+}
+
+/* The Yellow Border Link Box */
+.study-links-container {
+    border-style: solid;
+    border-color: var(--golden-yellow);
+    border-width: 3px 3px 3px 0px; /* Top, Right, Bottom, Left */
+    padding: 30px 30px 30px 0px;
+    background-color: #fdfdfd;
+    border-radius: 0 8px 8px 0;
+    background: rgb(from var(--golden-yellow) r g b / 0.2);
+}
+
+.links-title {
+    display: block;
+    font-weight: 800;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    color: var(--navy-blue);
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+}
+
+.links-list {
+    display: flex;
+    flex-direction: column; /* Forces links to stack in a column */
+    padding-left: 120px;
+    gap: 15px;
+    text-decoration: underline;
+    text-decoration-thickness: 7%; /* 1.26px */
+    text-underline-offset: 23.5%; /* 4.23px */
+    text-underline-position: from-font;
+}
+
+.study-link-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    color: var(--navy-blue);
+    font-weight: 600;
+    transition: color 0.3s ease;
+    padding-bottom:20px;
+}
+
+.study-link-item:hover {
+    color: var(--golden-yellow);
+}
+
+.study-link-item .dashicons {
+    font-size: 20px;
+    color: var(--golden-yellow);
+}
+
+/* Mobile: Stack Image Top, Content Bottom */
+@media (max-width: 992px) {
+    .research-grid {
+        grid-template-columns: 1fr;
+        gap: 0px;
+    }
+
+    .research-content-col {
+        /* This moves the content to the top of the vertical stack */
+        order: 1; 
+    }
+
+    .research-image-col {
+        /* This moves the image to the bottom of the vertical stack */
+        order: 2;
+    }
+    .research-img {
+        border-radius: 0 0 8px 8px;
+    }
+
+    .research-content-col > div:nth-child(1) {
+        padding-left: 30px;
+    }
+
+    .study-links-container {
+        border-style: solid;
+        border-color: var(--golden-yellow);
+        border-width: 3px 3px 0px 3px; /* Top, Right, Bottom, Left */
+        padding: 30px 30px 30px 0px;
+        background-color: #fdfdfd;
+        border-radius: 8px 8px 0px 0px;
+        background: rgb(from var(--golden-yellow) r g b / 0.2);
+    }
+
+    .links-list { 
+        PAdding-left:30px;
+    }
+}

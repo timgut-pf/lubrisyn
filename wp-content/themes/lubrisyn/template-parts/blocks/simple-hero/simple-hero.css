@@ -1,0 +1,35 @@
+.simple-hero {
+    /* Background and Spacing */
+    background-color: #F2F2F2; /* Light grey */
+    padding: 65px 0;
+    text-align: center;
+
+    /* Corner Radius - Only bottom corners */
+    border-bottom-left-radius: 80px;
+    border-bottom-right-radius: 80px;
+    box-shadow: 0 4px 28px -7px #7D7D7D;
+
+    /* Ensure it spans full width if inside a wrapper */
+    width: 100%;
+    margin-bottom: 30px;
+}
+
+.simple-hero h1 {
+    margin: 0;
+    color: #333;
+    font-size: 84px;
+font-style: normal;
+font-weight: 400;
+line-height: 100%; /* 84px */
+letter-spacing: -1.68px;
+text-transform: uppercase;
+}
+
+/* Mobile Adjustments */
+@media (max-width: 768px) {
+    .simple-hero {
+        padding: 60px 0;
+        border-bottom-left-radius: 30px;
+        border-bottom-right-radius: 30px;
+    }
+}

@@ -1,0 +1,16 @@
+{
+    "name": "acf/accordion-image",
+    "title": "Accordion & Portrait Image",
+    "description": "A 2-column layout with FAQ-style accordions on the left and a portrait image on the right.",
+    "style": "file:./accordion-image.css",
+    "category": "layout",
+    "icon": "list-view",
+    "acf": {
+        "mode": "preview",
+        "renderTemplate": "accordion-image.php"
+    },
+    "supports": {
+        "anchor": true,
+        "align": false
+    }
+}

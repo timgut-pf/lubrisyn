@@ -1,0 +1,98 @@
+.header-left{
+    display: flex;
+    flex-direction: column;
+}
+
+.reviews-header {
+    display: flex;
+    flex-direction: row;
+}
+
+.header-left > h2 {
+    margin-bottom: 10px;
+}
+.reviews-swiper .swiper-slide {
+    height: auto; /* Required for Swiper to equalize heights */
+    display: flex;
+    border-radius: 15px 0 0 15px;
+}
+
+.review-card {
+    display: flex;
+    flex-direction: row; /* Forces side-by-side */
+    align-items: stretch; /* Forces image and text to same height */
+    background: #f9f9f9;
+    width: 100%;
+    border: 1px solid #eee;
+    overflow: hidden;
+}
+
+.review-image-side {
+    flex: 0 0 40%; /* Image takes exactly 40% width */
+    position: relative;
+}
+
+.review-image-side img {
+    position: absolute; /* Takes image out of flow to fill parent */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 15px 0 0 15px;
+}
+
+.review-content-side {
+    flex: 1; /* Content takes the remaining 60% */
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Centers text vertically */
+}
+
+.review-quote {
+    font-style: italic;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 25px;
+    color: var(--navy-blue);
+}
+
+.review-name {
+    font-family: var(--font-primary);
+    text-transform: uppercase;
+    margin: 0;
+    font-size: 1rem;
+    letter-spacing: 1px;
+}
+
+.review-role {
+    font-size: 0.85rem;
+    color: #777;
+    margin: 4px 0 0 0;
+}
+
+.reviews-swiper > div.swiper-pagination.swiper-pagination-clickable.swiper-pagination-bullets.swiper-pagination-horizontal {
+    padding-top: 15px;
+}
+
+.swiper-pagination {
+    text-align: left !important;
+    position: relative !important;
+    top: 30px;
+}
+
+/* Mobile Adjustments */
+@media (max-width: 768px) {
+    .review-card {
+        flex-direction: column; /* Stack only on small mobile */
+    }
+    
+    .review-image-side {
+        flex: 0 0 250px; /* Fixed height for image when stacked */
+    }
+    
+    .review-image-side img {
+        position: relative; /* Return to normal flow */
+    }
+}

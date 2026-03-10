@@ -2,11 +2,12 @@
 /**
  * LubriSyn Theme functions
  */
+
+
 if ( ! defined('ABSPATH') ) exit;
 
-require_once get_template_directory() . '/inc/blocks.php';
-
 add_action('after_setup_theme', function () {
+  add_theme_support('custom-logo');
   add_theme_support('title-tag');
   add_theme_support('post-thumbnails');
   add_theme_support('html5', ['search-form','comment-form','comment-list','gallery','caption','style','script']);
@@ -23,7 +24,64 @@ add_action('after_setup_theme', function () {
 });
 
 add_action('wp_enqueue_scripts', function () {
+  // Theme Metadata (Empty except for comment)
   wp_enqueue_style('lubrisyn-style', get_stylesheet_uri(), [], wp_get_theme()->get('Version'));
+
+  wp_enqueue_style(
+    'lubrisyn-main', 
+    get_template_directory_uri() . '/css/main.css', 
+    ['lubrisyn-style'], 
+    filemtime(get_template_directory() . '/css/main.css')
+);
+
+  //Component Styles
+  wp_enqueue_style(
+    'lubrisyn-header', 
+    get_template_directory_uri() . '/css/header.css', 
+    ['lubrisyn-style'], // Depends on main style (variables)
+    filemtime(get_template_directory() . '/css/header.css')
+);
+
+wp_enqueue_style(
+    'lubrisyn-footer', 
+    get_template_directory_uri() . '/css/footer.css', 
+    ['lubrisyn-style'], 
+    filemtime(get_template_directory() . '/css/footer.css')
+);
+
+  // Dashicons
+  wp_enqueue_style('dashicons');
+
+
+  // Swiper Assets (CDN)
+  wp_enqueue_style('swiper-css', 'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css', [], '11.0.0');
+  wp_enqueue_script('swiper-js', 'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js', [], '11.0.0', true);
+
+  wp_enqueue_style(
+    'lubrisyn-swiper-custom', 
+    get_template_directory_uri() . '/css/swiper.css', 
+    ['swiper-css', 'lubrisyn-style'],
+    filemtime(get_template_directory() . '/css/swiper.css')
+);
+
+  //  Main Navigation Script
+  wp_enqueue_script(
+      'lubrisyn-navigation', 
+      get_template_directory_uri() . '/navigation.js', 
+      [], 
+      file_exists(get_template_directory() . '/navigation.js') ? filemtime(get_template_directory() . '/navigation.js') : '1.0', 
+      true 
+  );
+
+  // 5. Hero Slider Initialization
+  // We list 'swiper-js' and 'jquery' as dependencies so they load FIRST
+  wp_enqueue_script(
+      'hero-slider-init', 
+      get_template_directory_uri() . '/assets/js/hero-slider.js', 
+      ['swiper-js', 'jquery'], 
+      file_exists(get_template_directory() . '/assets/js/hero-slider.js') ? filemtime(get_template_directory() . '/assets/js/hero-slider.js') : '1.0', 
+      true
+  );
 });
 
 /**
@@ -48,37 +106,99 @@ add_action('init', function () {
   }
 });
 
-add_action('acf/init', function () {
-  if ( ! function_exists('acf_register_block_type') ) return;
+/**
+ * Create ACF Options Page
+ */
+if( function_exists('acf_add_options_page') ) {
+    
+  acf_add_options_page(array(
+      'page_title'    => 'Site Settings',
+      'menu_title'    => 'Site Settings',
+      'menu_slug'     => 'site-settings',
+      'capability'    => 'edit_posts',
+      'redirect'      => false,
+      'icon_url'      => 'dashicons-admin-generic',
+  ));
+  
+}
 
-  // Register block (field group for this block lives in ACF UI / acf-json)
-  acf_register_block_type([
-    'name'            => 'lubrisyn-hero',
-    'title'           => __('LubriSyn Hero', 'lubrisyn'),
-    'description'     => __('Homepage hero with background image, overlay card, and product dropdown.', 'lubrisyn'),
-    'category'        => 'layout',
-    'icon'            => 'cover-image',
-    'keywords'        => ['hero', 'lubrisyn', 'banner'],
-    'mode'            => 'preview',
-    'supports'        => [
-      'align' => ['full'],
-      'anchor' => true,
-    ],
-    'render_template' => get_template_directory() . '/acf-blocks/lubrisyn-hero/render.php',
-    'enqueue_assets'  => function () {
-      wp_enqueue_style(
-        'lubrisyn-hero-block',
-        get_template_directory_uri() . '/acf-blocks/lubrisyn-hero/hero.css',
-        [],
-        wp_get_theme()->get('Version')
-      );
-      wp_enqueue_script(
-        'lubrisyn-hero-block',
-        get_template_directory_uri() . '/acf-blocks/lubrisyn-hero/hero.js',
-        [],
-        wp_get_theme()->get('Version'),
-        true
-      );
-    },
-  ]);
+
+add_action('acf/init', function() {
+  // Path to your blocks directory
+  $blocks_path = get_template_directory() . '/template-parts/blocks';
+
+  // Scan the directory for folders
+  $blocks = scandir($blocks_path);
+
+  foreach ($blocks as $block_folder) {
+      // Skip hidden files/folders
+      if ($block_folder === '.' || $block_folder === '..') continue;
+
+      $json_file = "$blocks_path/$block_folder/block.json";
+
+      // Check if the block.json file exists
+      if (file_exists($json_file)) {
+          register_block_type($json_file);
+      }
+  }
 });
+
+/**
+ * Populate ACF Select field with Gravity Forms
+ */
+function acf_load_gravity_forms_choices( $field ) {
+    
+  // Clear any existing choices
+  $field['choices'] = array();
+  
+  // Check if Gravity Forms is active
+  if ( class_exists( 'GFAPI' ) ) {
+      $forms = GFAPI::get_forms();
+      
+      foreach ( $forms as $form ) {
+          // value => Label
+          $field['choices'][ $form['id'] ] = $form['title'];
+      }
+  }
+  
+  return $field;
+}
+
+// Target the specific field name (change 'form_id to your actual field name)
+add_filter('acf/load_field/name=sform_id', 'acf_load_gravity_forms_choices');
+
+
+/**
+ * Register Custom Post Type: Team
+ */
+function register_team_cpt() {
+  $labels = array(
+      'name'               => 'Team',
+      'singular_name'      => 'Team Member',
+      'menu_name'          => 'Team',
+      'add_new'            => 'Add New Member',
+      'add_new_item'       => 'Add New Team Member',
+      'edit_item'          => 'Edit Team Member',
+      'all_items'          => 'All Team Members',
+  );
+
+  $args = array(
+      'labels'             => $labels,
+      'public'             => true,
+      'has_archive'        => false,
+      'menu_icon'          => 'dashicons-groups', // Icon of people
+      'supports'           => array( 'title', 'thumbnail' ), // Name and Photo
+      'rewrite'            => array('slug' => 'team'),
+      'show_in_rest'       => true, // Enables Gutenberg
+  );
+
+  register_post_type( 'team', $args );
+}
+add_action( 'init', 'register_team_cpt' );
+
+
+
+
+
+
+

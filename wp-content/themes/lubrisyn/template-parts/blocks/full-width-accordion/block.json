@@ -1,0 +1,17 @@
+{
+    "name": "acf/full-width-accordion",
+    "title": "Full Width Accordion",
+    "description": "A full width accordion repeater field",
+    "style": "file:./full-width-accordion.css",
+    "category": "formatting",
+    "icon": "external",
+    "keywords": ["accordion", "QA", "menu"],
+    "acf": {
+        "mode": "preview",
+        "renderTemplate": "full-width-accordion.php"
+    },
+    "supports": {
+        "align": false,
+        "anchor": true
+    }
+}

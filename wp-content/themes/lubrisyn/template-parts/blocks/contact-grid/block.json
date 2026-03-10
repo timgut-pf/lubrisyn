@@ -1,0 +1,16 @@
+{
+    "name": "acf/contact-grid",
+    "title": "Contact Icon Grid",
+    "description": "3 columns with icons, descriptions, and email links.",
+    "style": "file:./contact-grid.css",
+    "category": "lubrisyn",
+    "icon": "grid-view",
+    "acf": {
+        "mode": "preview",
+        "renderTemplate": "contact-grid.php"
+    },
+    "supports": {
+        "align": false,
+        "anchor": true
+    }
+}

@@ -1,0 +1,128 @@
+/* Product call out block */
+
+.product-callouts {
+    padding: 75px 0;
+    background-color: var(--white);
+}
+
+.callout-main-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 0px;
+    align-items: center;
+}
+
+.header-area {
+    margin-bottom: 40px;
+    text-align: left !important;
+    margin-right: 25%;
+}
+
+.header-area h2 {
+    color: #333);
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+}
+
+/* The 3-Sided Border (Top, Left, Bottom) */
+.callout-container-border {
+    border-top: 3px solid var(--golden-yellow);
+    border-left: 3px solid var(--golden-yellow);
+    border-bottom: 3px solid var(--golden-yellow);
+    border-right: none;
+    padding: 40px 20px 40px 40px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    border-radius: 8px 0 0 8px;
+    background-color: rgb(from var(--golden-yellow) r g b /10%);
+}
+
+.callout-item {
+    display: flex;
+    gap: 15px;
+}
+
+.callout-icon img {
+    max-width: 60px;
+    height: auto;
+}
+
+.callout-text {
+    display: flex;
+    /* align-items: center; */
+    flex-direction: column;
+    justify-content: center;
+}
+
+.callout-text h4 {
+    margin: 0 0 8px 0;
+    color: var(--navy-blue);
+    font-size: 1rem;
+}
+
+.callout-text p {
+    font-size: 0.9rem;
+    margin: 0;
+    color: #555;
+}
+.link-text {
+    font-weight: 600;
+    text-decoration: underline;
+    color: var(--navy-blue);
+}
+
+/* Right Side Image */
+.callout-image-right .side-hero-img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    /* Optional: subtle shadow to make product pop */
+    filter: drop-shadow(0 10px 20px rgba(0,0,0,0.1));
+}
+
+/* Responsive */
+@media (max-width: 1110px) {
+
+    .header-area {
+        text-align: center !important;
+        margin-right: 0;
+    }
+
+    .product-callouts {
+        padding: 20px 0;
+
+    }
+
+    .callout-main-grid {
+        display: flex; 
+        flex-direction: column;
+        gap: 0px;
+    }
+    
+    
+    .callout-image-right {
+        order: 2; 
+        text-align: center;
+    }
+
+    .callout-content-left {
+        order: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        top: 6px;
+    }
+
+    .callout-container-border {
+        border-right: 3px solid var(--golden-yellow);
+        border-bottom: 0px solid var(--golden-yellow);
+        padding: 30px;
+        border-radius: 8px;
+        width:90%;
+        display: flex;
+        flex-direction: column;
+    }
+}

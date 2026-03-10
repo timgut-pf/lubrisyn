@@ -1,0 +1,15 @@
+{
+    "name": "acf/hero-2",
+    "title": "Hero 2 (Sub-page)",
+    "description": "Split hero with text on left and image on right. Stacks on mobile.",
+    "style": "file:./hero-2.css",
+    "category": "lubrisyn",
+    "icon": "cover-image",
+    "acf": {
+        "mode": "preview",
+        "renderTemplate": "hero-2.php"
+    },
+    "supports": {
+        "anchor": true
+    }
+}
