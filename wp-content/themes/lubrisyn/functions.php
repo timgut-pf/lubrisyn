@@ -99,6 +99,14 @@ add_action('enqueue_block_assets', function () {
     return;
   }
 
+  // Load Adobe Fonts / Typekit in the editor so fonts match the frontend.
+  wp_enqueue_style(
+    'lubrisyn-typekit',
+    'https://use.typekit.net/iid8ijd.css',
+    [],
+    null
+  );
+
   wp_enqueue_style(
     'swiper-css',
     'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css',
