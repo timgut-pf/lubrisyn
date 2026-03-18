@@ -39,68 +39,102 @@ if( $button ):
 
 
 
-
+<div class="mobile-push"></div>
 <section id="<?php echo esc_attr($id); ?>" class="hp-hero">
-    <div class="mobile-push"></div>
     
-    <div class="swiper hero-swiper">
-        <div class="swiper-wrapper">
-            <?php if ($slides): foreach ($slides as $slide): 
-                $img_url = is_array($slide['image']) ? $slide['image']['url'] : $slide['image'];
-                // We pass the unique text to the JS via data attributes
-                $s_title = esc_attr($slide['hero_slide_title']);
-                $s_sub   = esc_attr($slide['hero_slide_subtitle']);
-            ?>
-                <div class="swiper-slide" data-title="<?php echo $s_title; ?>" data-subtitle="<?php echo $s_sub; ?>">
-                    <div class="slide-bg" style="background-image: url('<?php echo esc_url($img_url); ?>');"></div>
-                    <div class="hero-overlay"></div>
-                </div>
-            <?php endforeach; endif; ?>
-        </div>
-    </div>
-
-    <div class="hero-static-content">
-        <div class="lubrisyn-container">
-            <div class="hero-text-wrap">
-            <?php 
-    // Define the fallbacks
-    $first_title = !empty($slides) ? $slides[0]['hero_slide_title'] : '';
-    $first_sub   = !empty($slides) ? $slides[0]['hero_slide_subtitle'] : '';
-    ?>
-
-    <h1 class="hero-title js-dynamic-title"><?php echo esc_html($first_title); ?></h1>
-    <p class="hero-subtitle js-dynamic-subtitle"><?php echo esc_html($first_sub); ?></p>
-                
-                <?php if ($button): ?>
-                    <a href="<?php echo esc_url($button['url']); ?>" class="btn-primary">
-                        <?php echo esc_html($button['title']); ?>
-                    </a>
-                <?php endif; ?>
-
-                <?php if( have_rows('hero_dropdown') ): ?>
-                    <div class="hero-dropdown-container">
-                        <span>Shop Products for</span>
-                        <select class="hero-classic-select" onchange="if (this.value) window.location.href = this.value;">
-                            <option value=""><?php echo esc_html(get_field('dropdown_placeholder') ?: 'Select'); ?></option>
-                            
-                            <?php while( have_rows('hero_dropdown') ): the_row(); 
-                                $menu_label = get_sub_field('menu_text'); 
-                                $link_array = get_sub_field('url'); 
-                                
-                                if( is_array($link_array) ) :
-                                    $destination_url = $link_array['url'];
-                                    $display_text    = $menu_label ?: $link_array['title'];
-                                ?>
-                                    <option value="<?php echo esc_url($destination_url); ?>">
-                                        <?php echo esc_html($display_text); ?>
-                                    </option>
-                                <?php endif; ?>
-                            <?php endwhile; ?>
-                        </select>
-                    </div>
-                <?php endif; ?>
+    
+<div class="swiper hero-swiper">
+    <div class="swiper-wrapper">
+        <?php if ($slides): foreach ($slides as $slide): 
+            $img_url = is_array($slide['image']) ? $slide['image']['url'] : $slide['image'];
+            // Escape attributes to prevent HTML breaking
+            $s_title = esc_attr($slide['hero_slide_title']);
+            $s_sub   = esc_attr($slide['hero_slide_subtitle']);
+        ?>
+            <div class="swiper-slide" data-title="<?php echo $s_title; ?>" data-subtitle="<?php echo $s_sub; ?>">
+                <div class="slide-bg" style="background-image: url('<?php echo esc_url($img_url); ?>');"></div>
+                <div class="hero-overlay"></div>
             </div>
-            <div class="swiper-pagination hero-dots"></div>
-        </div>
+        <?php endforeach; endif; ?>
     </div>
+</div>
+
+<div class="hero-static-content">
+    <div class="lubrisyn-container">
+        <div class="hero-text-wrap">
+            <?php 
+            $first_title = !empty($slides) ? $slides[0]['hero_slide_title'] : '';
+            $first_sub   = !empty($slides) ? $slides[0]['hero_slide_subtitle'] : '';
+            ?>
+
+            <h1 class="hero-title js-dynamic-title js-update-text"><?php echo esc_html($first_title); ?></h1>
+            <p class="hero-subtitle js-dynamic-subtitle js-update-text"><?php echo esc_html($first_sub); ?></p>
+            
+            <?php if ($button): ?>
+                <a href="<?php echo esc_url($button['url']); ?>" class="btn-primary">
+                    <?php echo esc_html($button['title']); ?>
+                </a>
+            <?php endif; ?>
+
+            <?php if( have_rows('hero_dropdown') ): ?>
+                <div class="hero-dropdown-container">
+                    <span>Shop Products for</span>
+                    <select class="hero-classic-select" onchange="if (this.value) window.location.href = this.value;">
+                        <option value=""><?php echo esc_html(get_field('dropdown_placeholder') ?: 'Select'); ?></option>
+                        <?php while( have_rows('hero_dropdown') ): the_row(); 
+                            $link_array = get_sub_field('url'); 
+                            if( is_array($link_array) ) : ?>
+                                <option value="<?php echo esc_url($link_array['url']); ?>">
+                                    <?php echo esc_html(get_sub_field('menu_text') ?: $link_array['title']); ?>
+                                </option>
+                            <?php endif; ?>
+                        <?php endwhile; ?>
+                    </select>
+                </div>
+            <?php endif; ?>
+        </div>
+        <div class="swiper-pagination hero-dots"></div>
+    </div>
+</div>
 </section>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const titleEl = document.querySelector('.js-dynamic-title');
+    const subEl = document.querySelector('.js-dynamic-subtitle');
+
+    const heroTwoSwiper = new Swiper('.hero-swiper', {
+        loop: true,
+        speed: 1000,
+        effect: 'fade', 
+        fadeEffect: { crossFade: true },
+        autoplay: { delay: 6000 },
+        pagination: {
+            el: '.hero-dots',
+            clickable: true,
+        },
+        on: {
+            slideChange: function () {
+                // 1. Get the active slide (works with loop: true)
+                const activeSlide = this.slides[this.activeIndex];
+                
+                // 2. Pull data from the data-attributes we set in PHP
+                const newTitle = activeSlide.getAttribute('data-title');
+                const newSub = activeSlide.getAttribute('data-subtitle');
+
+                // 3. Simple fade out/in effect
+                if (titleEl && subEl) {
+                    titleEl.style.opacity = 0;
+                    subEl.style.opacity = 0;
+
+                    setTimeout(() => {
+                        titleEl.textContent = newTitle;
+                        subEl.textContent = newSub;
+                        titleEl.style.opacity = 1;
+                        subEl.style.opacity = 1;
+                    }, 300); // Wait for fade out to finish
+                }
+            },
+        },
+    });
+});
+</script>
