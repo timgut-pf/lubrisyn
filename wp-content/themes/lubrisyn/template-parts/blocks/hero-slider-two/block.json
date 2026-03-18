@@ -1,0 +1,15 @@
+{
+    "name": "acf/hero-slider-two",
+    "title": "Hero Slider two",
+    "description": "Hero Content with background slidehsow.",
+    "style": "file:./hero-slider-two.css",
+    "category": "lubrisyn",
+    "icon": "megaphone",
+    "acf": {
+        "mode": "preview",
+        "renderTemplate": "hero-slider-two.php"
+    },
+    "supports": {
+        "anchor": true
+    }
+}
