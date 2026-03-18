@@ -1,29 +1,42 @@
 (function($){
     var initializeBlock = function( $block ) {
         var $slider = $block.find('.hero-swiper');
-        if ($slider.length) {
-            new Swiper($slider[0], {
-                loop: true,
-                effect: 'fade',
-                fadeEffect: { crossFade: true },
-                autoplay: {
-                    delay: 5000,
-                    disableOnInteraction: false,
-                },
-                speed: 1500,
-            });
-        }
-    }
+        var titleEl = $block.find('.js-dynamic-title')[0];
+        var subEl = $block.find('.js-dynamic-subtitle')[0];
+        if (!$slider.length) return;
 
-    // Initialize each block on page load (Frontend)
+        new Swiper($slider[0], {
+            loop: true,
+            effect: 'fade',
+            fadeEffect: { crossFade: true },
+            speed: 800,
+            autoplay: {
+                delay: 6000,
+                disableOnInteraction: false,
+            },
+            pagination: {
+                el: $block.find('.hero-dots')[0],
+                clickable: true,
+            },
+            on: {
+                slideChangeTransitionStart: function () {
+                    var activeSlide = this.slides[this.activeIndex];
+                    var newTitle = activeSlide ? activeSlide.getAttribute('data-title') : '';
+                    var newSub = activeSlide ? activeSlide.getAttribute('data-subtitle') : '';
+                    if (titleEl) titleEl.textContent = newTitle || '';
+                    if (subEl) subEl.textContent = newSub || '';
+                },
+            },
+        });
+     }
+
     $(document).ready(function(){
         $('.hp-hero').each(function(){
             initializeBlock( $(this) );
         });
     });
 
-    // Initialize block preview (Gutenberg Editor)
-    if( window.acf ) {
+    if ( window.acf ) {
         window.acf.addAction( 'render_block_preview/type=hero-slider', initializeBlock );
     }
 })(jQuery);
