@@ -7,7 +7,7 @@
 
 .callout-main-grid {
     display: grid;
-    grid-template-columns: 1.2fr 0.8fr;
+    grid-template-columns: 1fr 0.8fr;
     gap: 0px;
     align-items: center;
 }
@@ -19,12 +19,11 @@
 }
 
 .header-area h2 {
-    color: #333);
+    color: #333;
     font-size: 2.5rem;
     margin-bottom: 15px;
 }
 
-/* The 3-Sided Border (Top, Left, Bottom) */
 .callout-container-border {
     border-top: 3px solid var(--golden-yellow);
     border-left: 3px solid var(--golden-yellow);
@@ -50,7 +49,6 @@
 
 .callout-text {
     display: flex;
-    /* align-items: center; */
     flex-direction: column;
     justify-content: center;
 }
@@ -72,6 +70,10 @@
     color: var(--navy-blue);
 }
 
+.callout-image-right {
+    align-self: end;
+}
+
 /* Right Side Image */
 .callout-image-right .side-hero-img {
     width: 100%;
@@ -82,7 +84,7 @@
 }
 
 /* Responsive */
-@media (max-width: 1110px) {
+@media (max-width: 925px) {
 
     .header-area {
         text-align: center !important;
@@ -104,6 +106,7 @@
     .callout-image-right {
         order: 2; 
         text-align: center;
+        width: 100%;
     }
 
     .callout-content-left {

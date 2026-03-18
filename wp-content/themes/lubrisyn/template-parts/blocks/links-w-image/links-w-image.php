@@ -28,11 +28,11 @@ $image    = get_field('side_image');
         ?>
             <div class="callout-item">
                 <div class="link-text">
-                    <a href="<?php echo esc_url($link_url); ?>" 
+                    <li><a href="<?php echo esc_url($link_url); ?>" 
                        target="<?php echo esc_attr($link_target); ?>" 
                        class="font-body">
                         <?php echo esc_html($link_title); ?>
-                    </a>
+                    </a></li>
                 </div>
             </div>
         <?php 
