@@ -310,6 +310,264 @@ padding: 17px 30px;
 }
 
 
+.simple-blog-hero {
+    /* Background and Spacing */
+    background-color: #F2F2F2; /* Light grey */
+    padding: 65px 0;
+    text-align: center;
+  
+    /* Corner Radius - Only bottom corners */
+    border-bottom-left-radius: 80px;
+    border-bottom-right-radius: 80px;
+    box-shadow: 0 4px 28px -7px #7D7D7D;
+  
+    /* Ensure it spans full width if inside a wrapper */
+    width: 100%;
+    margin-bottom: 30px;
+}
+
+
+.simple-blog-hero h1 {
+  margin: 0;
+  color: #333;
+  font-size: 84px;
+font-style: normal;
+font-weight: 400;
+line-height: 100%; /* 84px */
+letter-spacing: -1.68px;
+text-transform: uppercase;
+}
+
+article {
+  padding-bottom: 15px;
+  margin-bottom:15px;
+}
+
+/* Individual Jump Buttons */
+.art-nav-btn {
+  display: inline-block;
+  background-color: var(--white);
+  color: var(--navy-blue);
+  border: 2px solid var(--navy-blue);
+  padding: 10px 22px;
+ 
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 0.85rem;
+  letter-spacing: 0.5px;
+  transition: all 0.3s ease-in-out;
+}
+
+/* Hover States */
+.art-nav-btn:hover {
+  background-color: var(--golden-yellow);
+  color: var(--navy-blue);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  text-decoration: none;
+}
+
+.sidebar-section > h3 {
+  color: var(--navy-blue);
+font-size: 20px;
+font-style: normal;
+font-weight: 600;
+line-height: 38px;
+}
+aside {
+  border-radius: 15px;
+border: 2px solid var(--navy-blue);
+padding: 15px;
+}
+.recent-post-item > h4 {
+  font-style: normal;
+font-weight: 600;
+line-height: 25px; /* 156.25% */
+text-decoration-line: underline;
+text-decoration-style: solid;
+text-decoration-skip-ink: none;
+text-decoration-thickness: auto;
+text-underline-offset: auto;
+color: var(--navy-blue);
+}
+
+.shop-for-block {
+  padding: 40px 0;
+  background-color: var(--white);
+}
+
+.shop-for-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+
+}
+
+.shop-for-col-left {
+  background-color: var(--navy-blue);
+  padding: 70px 0px 70px 70px;
+  border-radius: 20px 0 0 20px;
+  display: flex;
+  align-items: center;
+}
+
+.shop-for-col-left h2 {
+  color: var(--white);
+  font-size: 56px;
+  margin-bottom: 40px;
+  line-height: 1.1;
+  background-color: var(--navy-blue);
+  padding-right: 20px;
+}
+
+.shop-select {
+  width:95%;
+ max-width:630px;
+ 
+  padding: 12px 40px 12px 15px;
+  font-size: 1rem;
+  font-family: inherit;
+  font-weight: 600;
+  color: #7D7D7D !important;
+  /* background-color: rgba(0, 43, 92, 0.8); */
+  border: 2px solid var(--white);
+  border-radius: 4px;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  cursor: pointer;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='grey' d='M10.293 3.293L6 7.586 1.707 3.293A1 1 0 00.293 4.707l5 5a1 1 0 001.414 0l5-5a1 1 0 10-1.414-1.414z'/%3E%3C/svg%3E");
+background-repeat: no-repeat;
+background-position: right 15px center;
+  transition: all 0.3s ease;
+
+}
+#gform_2 > div.gform-footer.gform_footer.top_label {
+  margin: 0 !important;
+}
+
+.sidebar-section #gform_2 {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: baseline;
+}
+
+.sidebar-section p {
+  color:var(--navy-blue);
+  margin-bottom: 5px;
+}
+
+.sidebar-section #gform_submit_button_2 {
+  margin-top: 10px;
+  margin-left: 0px;
+  width:100%;
+  border: 2px solid Var(--navy-blue);
+  border-radius: 0px;
+}
+
+.sidebar-section .social-icons {
+  margin-bottom: 15px;
+}
+
+.sidebar-section .gform-footer {
+  width: 76%;
+}
+
+#field_2_1 > label {
+  display: none;
+}
+
+/* 1. Target a specific class so it doesn't affect every list on your site */
+.circled-numbered-list {
+  list-style: none;
+  padding-left: 0;
+  margin-top: 2rem;
+  /* This uses the variable --start if provided, otherwise defaults to 0 */
+  counter-reset: blog-counter var(--start, 0); 
+}
+
+
+.circled-numbered-list li {
+  counter-increment: blog-counter;
+  position: relative;
+  padding-left: 65px;
+  margin-bottom: 40px;
+  font-family: gotham;
+}
+
+/* 2. Create the Circle and the Number */
+.circled-numbered-list li::before {
+  content: counter(blog-counter);
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 45px;
+  height: 45px;
+  background-color: transparent;
+  border: 2px solid var(--navy-blue);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 18px;
+  color: var(--navy-blue);
+  font-family: inherit;
+}
+
+/* 3. (Optional) Style the first line/title if you use <strong> tags */
+.circled-numbered-list li strong:first-child {
+  display: block;
+  font-size: 1.2rem;
+  margin-bottom: 5px;
+  color: #333;
+}
+
+/* 3. Handle the 'Start' values manually for the 2nd list */
+/* Add these utility classes to your CSS */
+.start-6 { --start: 5; }
+.start-11 { --start: 10; }
+
+/* Mobile Adjustments */
+@media (max-width: 768px) {
+  .simple-blog-hero {
+      padding: 60px 0;
+      border-bottom-left-radius: 30px;
+      border-bottom-right-radius: 30px;
+  }
+}
+
+@media (max-width: 950px) {
+  .blog-layout-wrapper, .post-navigation {
+  flex-direction: column;
+
+  }
+
+  .shop-for-grid {
+    grid-template-columns: 1fr;
+    text-align: center;
+}
+.shop-for-col-left {
+    order: 1; /* Appears first (on top) */
+    border-radius: 20px 20px 0 0px;
+    padding: 70px 0px 70px 0px;
+}
+
+.shop-for-col-right {
+    order: 2; /* Image moves to top */
+    margin-top: 0px;
+    /* border-radius: 0px 0px 20px 20px; */
+}
+.lubrisyn-container .font-subheading {
+  font-size: 55px;
+}
+}
+
+  
+  aside {
+    max-width:300px;
+  }
+
+
+
 
 
 

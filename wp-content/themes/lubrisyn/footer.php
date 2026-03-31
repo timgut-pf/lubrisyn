@@ -57,6 +57,7 @@
             <div class="newsletter-placeholder">
 
                 <div class="gravity-form-mock">
+                    <span>Subscribe:</span>
                 <?php
 echo do_shortcode('[gravityform id="2" title="false" description="false" ajax="true"]');
 ?>

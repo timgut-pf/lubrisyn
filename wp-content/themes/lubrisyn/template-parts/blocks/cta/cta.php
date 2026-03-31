@@ -1,11 +1,8 @@
 <?php
-$headline = get_field('headline');
-$image    = get_field('image');
-$buttons  = get_field('buttons'); // Get the repeater array
-$button_count = $buttons ? count($buttons) : 0;
-
-// Determine the layout class based on count
-$button_class = ($button_count >= 3) ? 'cta-buttons-stacked' : 'cta-buttons-row';
+$headline   = get_field('headline');
+$image      = get_field('image');
+$dropdown   = get_field('cta_dropdown'); // Changed from 'buttons' to 'cta_dropdown'
+$placeholder = get_field('dropdown_placeholder') ?: 'Select';
 ?>
 
 <section class="cta-block">
@@ -16,26 +13,25 @@ $button_class = ($button_count >= 3) ? 'cta-buttons-stacked' : 'cta-buttons-row'
                 <h2 class="font-subheading cta-heading"><?php echo esc_html($headline); ?></h2>
             <?php endif; ?>
 
-            <?php if (have_rows('buttons')) : ?>
-                <div class="cta-button-group <?php echo $button_class; ?>">
-                    <?php 
-                    $i = 0; // Initialize counter
-                    while (have_rows('buttons')) : the_row(); 
-                        $link = get_sub_field('link');
-                        if ($link) : 
-                            // Check if it's the first button AND the class is 'cta-buttons-row'
-                            $style = ($button_class === 'cta-buttons-row' && $i === 0) ? 'style="background-color: #DCAD26;"' : '';
-                            ?>
-                            <a href="<?php echo esc_url($link['url']); ?>" 
-                               target="<?php echo esc_attr($link['target'] ?: '_self'); ?>" 
-                               class="btn-primary" 
-                               <?php echo $style; ?>>
-                                <?php echo esc_html($link['title']); ?>
-                            </a>
-                        <?php 
-                        endif; 
-                        $i++; // Increment counter
-                    endwhile; ?>
+            <?php if (have_rows('cta_dropdown')) : ?>
+                <div class="hero-dropdown-container cta-dropdown-wrap">
+                    <select class="hero-classic-select" onchange="if (this.value) window.location.href = this.value;">
+                        <option value=""><?php echo esc_html($placeholder); ?></option>
+                        <?php while (have_rows('cta_dropdown')) : the_row(); 
+                            $menu_text = get_sub_field('menu_text');
+                            $link      = get_sub_field('url');
+                            if ($link) : 
+                                $label = $menu_text ?: $link['title']; ?>
+                                <option value="<?php echo esc_url($link['url']); ?>"><?php echo esc_html($label); ?></option>
+                            <?php endif; 
+                        endwhile; ?>
+                    </select>
+                </div>
+
+            <?php else : ?>
+                <div class="cta-button-group cta-buttons-row" style="margin-top: 20px; display: flex; gap: 15px;">
+                    <a href="https://lubrisyn-dev.myshopify.com/" class="btn-primary" style="background-color: #DCAD26;">Shop Now</a>
+                    <a href="/how-it-works/" class="btn-primary">How it Works</a>
                 </div>
             <?php endif; ?>
         </div>

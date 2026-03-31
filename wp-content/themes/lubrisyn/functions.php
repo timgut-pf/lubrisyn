@@ -249,10 +249,3 @@ function register_team_cpt() {
   register_post_type( 'team', $args );
 }
 add_action( 'init', 'register_team_cpt' );
-
-
-
-
-
-
-

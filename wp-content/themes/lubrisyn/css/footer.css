@@ -81,6 +81,16 @@
   .gravity-form-mock {
     display: flex;
     gap: 5px;
+    flex-direction: column;
+  }
+
+  .gravity-form-mock span {
+    font-family: Gotham;
+font-size: 16px;
+font-style: normal;
+font-weight: 600;
+line-height: 20px; /* 125% */
+padding-bottom: 5px;
   }
   
   .gravity-form-mock input {
